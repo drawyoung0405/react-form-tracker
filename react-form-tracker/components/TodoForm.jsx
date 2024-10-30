@@ -1,5 +1,5 @@
 import { useState } from 'react'
-function TodoForm({onAddIssue }) {
+function TodoForm({ onAddIssue}) {
   const [form, setForm] = useState({
     title: '',
     author: '',
@@ -15,7 +15,7 @@ function TodoForm({onAddIssue }) {
     e.preventDefault();  // prevent rerendering
     if (form.title && form.author && form.severity && form.description) {
       onAddIssue(form);  // add issue
-      setForm({ title: '', author: '', severity: '', description: '' });  
+      setForm({ title: '', author: '', severity: '', description: '' });
     } else {
       alert('Please fill all fields!');
     }

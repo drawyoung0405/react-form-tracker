@@ -2,7 +2,8 @@ import { useState } from "react"
 // import TodoList from "../components/TodoList"
 import { dataTodos } from "../mocks/dataTodos"
 import TodoForm from "../components/TodoForm";
-
+import TodoFilter from "../components/TodoFilter";
+// import TodoFilter from "../components/TodoFilter"
 
 function App() {
 const [issueTrackers, SetIssueTrackerss] = useState(dataTodos);
@@ -23,7 +24,9 @@ const closeIssue = (id) => {
         Issue Tracker
       </h1>
       <TodoForm onAddIssue={addIssue}/>
+      {/* <TodoFilter/> */}
       <h2 className="text-xl font-semibold mt-10">List Issues</h2>
+      <TodoFilter/>
       <ul className="mt-5 space-y-3">
       {issueTrackers.map((item) => {
         return (
