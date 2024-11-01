@@ -19,7 +19,7 @@ export const dataTodos = [
         id: 3,
         title: 'Fix bug in the code',
         description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-        status: 'done',
+        status: 'closed',
         severity: 'hard',
         author: 'John Doe'
     }

@@ -2,22 +2,36 @@ import { useState } from "react"
 // import TodoList from "../components/TodoList"
 import { dataTodos } from "../mocks/dataTodos"
 import TodoForm from "../components/TodoForm";
-import TodoFilter from "../components/TodoFilter";
+import TodoFilter from "../components/TodoFilterForm";
 // import TodoFilter from "../components/TodoFilter"
 
 function App() {
 const [issueTrackers, SetIssueTrackerss] = useState(dataTodos);
-const addIssue = (newItem) => {
-  SetIssueTrackerss([...issueTrackers, { ...newItem, id: Date.now(), status: 'new' }]);
-};
+// const addIssue = (newItem) => {
+//   SetIssueTrackerss([...issueTrackers, { ...newItem, id: Date.now(), status: 'new' }]);
+// };
+// const deleteIssue = (id) => {
+//   SetIssueTrackerss(issueTrackers.filter(issue => issue.id !== id));
+// };
+// // function filterStatus(status){
+// // }
+// // Hàm đóng (close) todo
+// const closeIssue = (id) => {
+//   SetIssueTrackerss(issueTrackers.map(issue => issue.id === id ? { ...issue, status: 'closed' } : issue));
+// };
+const addIssue = (newIssue) => SetIssueTrackerss([...issueTrackers,{...newIssue, id:Date.now(), status: 'new'}])
 const deleteIssue = (id) => {
-  SetIssueTrackerss(issueTrackers.filter(issue => issue.id !== id));
-};
-
-// Hàm đóng (close) todo
+  SetIssueTrackerss([...issueTrackers.filter(issue => issue.id !== id)])
+}
 const closeIssue = (id) => {
-  SetIssueTrackerss(issueTrackers.map(issue => issue.id === id ? { ...issue, status: 'closed' } : issue));
-};
+  // SetIssueTrackerss(issueTrackers.map(issue=>issue.id==id ? {...issue, status:'closed'} : issue))
+ const newIssue = [...issueTrackers];
+ const indexIssue = newIssue.findIndex(issue => issue.id === id);
+ if(indexIssue === -1) return;
+ newIssue[indexIssue].status = 'closed'
+ SetIssueTrackerss(newIssue);
+}
+
   return (<>
     <div className="container m-4 mx-auto">
       <h1 className="font-bold text-[30px] text-center uppercase">
